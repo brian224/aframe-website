@@ -72,6 +72,14 @@ html {
       display: none;
     }
 
+.splash-screen {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ECECEC;
+}
+
 /* nav */
 .nav-bar li {
   list-style: none;
@@ -108,6 +116,11 @@ html {
   color: white;
   padding: 50px;
   /*background-color: rgba(1, 1, 1, 0.5);*/
+}
+
+#lorem.detail, #lorem2.detail {
+  width: 1024px;
+  height: 1024px;
 }
 
 .background-sci-fi {

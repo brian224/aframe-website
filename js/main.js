@@ -4,11 +4,20 @@
 //   entity.object3D.rotation.x = Math.PI/12 * (1 - i);
 // });
 
-AFRAME.registerComponent('click-listener', {
+AFRAME.registerComponent('toggle-detail', {
+  schema: {
+    target: { default: null }
+  },
+
   init: function () {
+    // console.log(this.el, this.data);
+    this.targetElement = document.querySelector(this.data.target);
     var el = this.el;
-    window.addEventListener('click', function () {
-      el.emit('click', null, false);
+    console.log(el);
+    el.addEventListener('click', () => {
+      console.log(this.targetElement);
+      this.targetElement.classList.toggle('detail');
     });
   }
 });
+
