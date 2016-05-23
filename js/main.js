@@ -10,10 +10,10 @@ AFRAME.registerComponent('toggle-detail', {
   },
 
   init: function () {
-    // console.log(this.el, this.data);
     this.targetElement = document.querySelector(this.data.target);
+
     var el = this.el;
-    console.log(el);
+
     el.addEventListener('click', () => {
       console.log(this.targetElement);
       this.targetElement.classList.toggle('detail');
@@ -21,3 +21,20 @@ AFRAME.registerComponent('toggle-detail', {
   }
 });
 
+// window.addEventListener('load', () => {
+//   console.log('load');
+//   var rows = document.querySelectorAll('.row');
+//   console.log(rows);
+//   Array.prototype.forEach.call(rows, (row) => {
+//     console.log(row);
+//     row.addEventListener('loaded', () => {
+//       console.log('row loaded');
+//       row.emit('');
+//     });
+//   });
+
+//   var row = document.querySelector('.row');
+//   row.addEventListener('loaded', () => {
+//     console.log('row loaded');
+//   });
+// });
