@@ -107,7 +107,7 @@ html {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-#lorem, #lorem2 {
+#lorem, #short-lorem {
   position: absolute;
   top: 0;
   width: 512px;
@@ -118,7 +118,7 @@ html {
   /*background-color: rgba(1, 1, 1, 0.5);*/
 }
 
-#lorem.detail, #lorem2.detail {
+#lorem.detail, #short-lorem.detail {
   width: 1024px;
   height: 1024px;
 }
