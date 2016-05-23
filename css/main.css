@@ -3,74 +3,29 @@ html {
   font-family: Open Sans;
 }
 
+.texture {
+  position: absolute;
+  top: 0;
+  width: 512px;
+  height: 512px;
+}
 
-    #target {
-      width: 512px;
-      height: 256px;
-      position: absolute;
-      background: rgba(255,255,0,0.3);
-    }
-    #htmlTarget.hide {
-      z-index: -1;
-    }
-    #target h1 {
-      font-family: Arial;
-      font-size: 110px;
-      margin: 0;
-      vertical-align: top;
-      color: white;
-    }
-    #target h1 span {
-      color: tomato;
-    }
-    #emoji {
-      position: absolute;
-      font-size: 512px;
-      color: mediumTurquoise;
-      font-style: serif;
-    }
-    #pre {
-      font-family: monospace;
-      margin: 0;
-      padding: 0;
-      height: 50px;
-      font-size: 50px;
-      background: royalblue;
-      color: tomato;
-    }
-    #htmlTarget {
-      position: absolute;
-      z-index: 1;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-    }
-    #debug {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
-    @media (max-width: 512px) {
-      #target {
-        width: 256px;
-        height: 126px;
-      }
-      #target h1 {
-        font-size: 55px;
-      }
-      #pre {
-        height: 50px;
-        font-size: 25px;
-      }
-      #emoji {
-        position: absolute;
-        font-size: 256px;
-        color: mediumTurquoise;
-      }
-    }
-    body[data-vr="true"] .novr{
-      display: none;
-    }
+.texture.detail {
+  width: 1024px;
+  height: 1024px;
+}
+
+.background-sci-fi {
+  background-color: rgba(67, 112, 139, 0.7);
+}
+
+.background-sci-fi-light {
+  background-color: rgba(109, 183, 197, 0.7);
+}
+
+.background-white {
+  background-color: #fff;
+}
 
 .splash-screen {
   position: fixed;
@@ -108,25 +63,21 @@ html {
 }
 
 #lorem, #short-lorem {
-  position: absolute;
-  top: 0;
-  width: 512px;
-  height: 512px;
   font-size: 50px;
   color: white;
   padding: 50px;
   /*background-color: rgba(1, 1, 1, 0.5);*/
 }
 
-#lorem.detail, #short-lorem.detail {
-  width: 1024px;
-  height: 1024px;
+#foxkeh {
+  font-size: 50px;
+  padding: 50px;
 }
 
-.background-sci-fi {
-  background-color: rgba(67, 112, 139, 0.7);
+#foxkeh > img {
+  margin-bottom: 50px;
 }
 
-.background-sci-fi-light {
-  background-color: rgba(109, 183, 197, 0.7);
+#foxkeh.detail {
+  background-color: #fff;
 }
