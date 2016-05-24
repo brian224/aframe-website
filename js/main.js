@@ -12,29 +12,66 @@ AFRAME.registerComponent('toggle-detail', {
   init: function () {
     this.targetElement = document.querySelector(this.data.target);
 
-    var el = this.el;
+    if (!this.targetElement) {
+      return;
+    }
 
-    el.addEventListener('click', () => {
-      console.log(this.targetElement);
+    this.el.addEventListener('mousedown', () => {
+      this.clicked = true;
+    });
+
+    this.el.addEventListener('mouseleave', () => {
+      this.clicked = false;
+    });
+
+    this.el.addEventListener('mouseup', () => {
+      if (!this.clicked) {
+        return;
+      }
+
+      this.clicked = false;
       this.targetElement.classList.toggle('detail');
     });
   }
 });
 
-// window.addEventListener('load', () => {
-//   console.log('load');
-//   var rows = document.querySelectorAll('.row');
-//   console.log(rows);
-//   Array.prototype.forEach.call(rows, (row) => {
-//     console.log(row);
-//     row.addEventListener('loaded', () => {
-//       console.log('row loaded');
-//       row.emit('');
-//     });
-//   });
+AFRAME.registerComponent('go-to-url', {
+  schema: {
+    url: { default: null }
+  },
 
-//   var row = document.querySelector('.row');
-//   row.addEventListener('loaded', () => {
-//     console.log('row loaded');
-//   });
-// });
+  init: function () {
+    var url = this.data.url;
+
+    if (!url) {
+      return;
+    }
+
+    this.el.addEventListener('mousedown', () => {
+      this.clicked = true;
+    });
+
+    this.el.addEventListener('mouseleave', () => {
+      this.clicked = false;
+    });
+
+    this.el.addEventListener('mouseup', () => {
+      if (!this.clicked) {
+        return;
+      }
+
+      this.clicked = false;
+
+      var exitAnimation = document.getElementById('exit-animation');
+      exitAnimation.removeEventListener('animationend', this.animationendHandler);
+      this.animationendHandler = exitAnimation.addEventListener('animationend', () => {
+        window.location.href = url;
+      });
+
+      var rows = document.querySelectorAll('.row');
+      Array.prototype.forEach.call(rows, (row) => {
+        row.emit('exit');
+      });
+    });
+  }
+});

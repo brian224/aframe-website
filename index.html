@@ -13,10 +13,17 @@
     <script src="js/main.js"></script>
   </head>
   <body>
-    <ul id="notifications" class="notifications">
-      <li>Firefox 45 is out!</li>
-      <li>New shirts arrived!</li>
-    </ul>
+    <div id="firefox" class="texture button">
+      <img src="img/header-firefox.png" alt="">
+    </div>
+
+    <div id="aframe" class="texture button">
+      <span>A-FRAME</span>
+    </div>
+
+    <div id="light-panel" class="texture background-sci-fi-light"></div>
+
+    <div id="dark-panel" class="texture background-sci-fi"></div>
 
     <div id="lorem" class="texture background-sci-fi">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate, sem in maximus gravida, ligula diam dignissim diam, sed aliquet nisl tellus quis risus. Suspendisse in turpis venenatis, molestie arcu non, feugiat ex. In non ipsum at sem molestie consectetur vel at massa. Nulla in mi accumsan risus auctor semper. Fusce et arcu eget metus ullamcorper viverra. Phasellus porta, nunc sed fermentum rutrum, lectus est commodo libero, ac consequat turpis purus nec odio. Nunc tempor elit nec nunc consectetur facilisis. Nullam venenatis arcu ut facilisis ultrices. Nullam rutrum mauris sit amet pellentesque ullamcorper. Nam ac magna aliquam, pulvinar elit eu, eleifend turpis.
@@ -31,7 +38,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate, sem in 
       <p>「フォクすけ」は、Firefox のプロモーション活動をサポートしてくれる、日本発のマスコットキャラクターです。みんなと Firefox のことをもっともっと知りたいと思っています。どうぞよろしく！</p>
     </div>
 
-    <div class="splash-screen"></div>
+    <!-- <div class="splash-screen"></div> -->
 
     <a-scene vr-mode-ui>
       <a-entity id="camera" camera look-controls>
@@ -43,25 +50,23 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate, sem in 
         <!-- 1st column -->
         <a-entity rotation="30 60 0">
           <a-entity id="plane-1-1" class="news-entity" geometry="primitive:plane;width:5;height:5;" position="0 0 -10"
-                    material="shader:html;target:#lorem;transparent:true;ratio:width;fps:1.5;" toggle-detail="target:#short-lorem;">
+                    material="shader:html;target:#dark-panel;transparent:true;ratio:width;fps:1.5;">
             <a-animation attribute="position" to="0 0 -8" dur="200" begin="mouseenter"></a-animation>
             <a-animation attribute="position" to="0 0 -10" dur="200" begin="mouseleave"></a-animation>
-            <a-animation attribute="geometry.width" from="5" to="10" dur="500" direction="alternate" begin="click"></a-animation>
-            <a-animation attribute="geometry.height" from="5" to="10" dur="500" direction="alternate" begin="click"></a-animation>
           </a-entity>
         </a-entity>
         <!-- 3rd column -->
         <a-entity rotation="30 0 0">
-          <a-entity id="plane-1-3" class="news-entity" geometry="primitive:plane;width:5;height:5;" position="0 0 -10"
-                    material="shader:html;target:#short-lorem;transparent:true;ratio:width;fps:1.5;" toggle-detail="target:#short-lorem;">
+          <a-image id="firefox-entity" src="img/header-firefox.png" width="4.46" height="1.68" position="0 0 -10" go-to-url="url:https://www.mozilla.org/zh-TW/firefox/new/">
             <a-animation attribute="position" to="0 0 -8" dur="200" begin="mouseenter"></a-animation>
             <a-animation attribute="position" to="0 0 -10" dur="200" begin="mouseleave"></a-animation>
-            <a-animation attribute="geometry.width" from="5" to="10" dur="500" direction="alternate" begin="click"></a-animation>
-            <a-animation attribute="geometry.height" from="5" to="10" dur="500" direction="alternate" begin="click"></a-animation>
-          </a-entity>
+            <a-animation attribute="position" from="0 0 -8" to="0 0 -11" dur="200" begin="mousedown"></a-animation>
+          </a-image>
         </a-entity>
         <!-- slide in animation -->
-        <a-animation attribute="rotation" from="0 120 0" to="0 0 0" begin="2000" dur="1200" easing="ease-out-back"></a-animation>
+        <a-animation id="test" attribute="rotation" from="0 120 0" to="0 0 0" begin="2000" dur="1200" easing="ease-out-back"></a-animation>
+        <!-- slide out animation -->
+        <a-animation id="test" attribute="rotation" from="0 0 0" to="0 -180 0" begin="exit" dur="800" easing="ease-in-back"></a-animation>
       </a-entity>
 
       <!-- 2nd row -->
@@ -69,11 +74,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate, sem in 
         <!-- 2nd column -->
         <a-entity rotation="0 30 0">
           <a-entity id="plane-2-2" class="news-entity" geometry="primitive:plane;width:5;height:5;" position="0 0 -10"
-                    material="shader:html;target:#short-lorem;transparent:true;ratio:width;fps:1.5;" toggle-detail="target:#short-lorem;">
+                    material="shader:html;target:#light-panel;transparent:true;ratio:width;fps:1.5;">
             <a-animation attribute="position" to="0 0 -8" dur="200" begin="mouseenter"></a-animation>
             <a-animation attribute="position" to="0 0 -10" dur="200" begin="mouseleave"></a-animation>
-            <a-animation attribute="geometry.width" from="5" to="10" dur="500" direction="alternate" begin="click"></a-animation>
-            <a-animation attribute="geometry.height" from="5" to="10" dur="500" direction="alternate" begin="click"></a-animation>
           </a-entity>
         </a-entity>
         <!-- 3rd column -->
@@ -98,6 +101,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate, sem in 
         </a-entity>
         <!-- slide in animation -->
         <a-animation attribute="rotation" from="0 -180 0" to="0 0 0" begin="3000" dur="2400" easing="ease-out-elastic"></a-animation>
+        <!-- slide out animation -->
+        <a-animation id="exit-animation" attribute="rotation" from="0 0 0" to="0 180 0" begin="exit" dur="1000" easing="ease-in-elastic"></a-animation>
       </a-entity>
 
       <!-- 3rd row -->
@@ -105,16 +110,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate, sem in 
         <!-- 1st column -->
         <a-entity rotation="-30 60 0">
           <a-entity id="plane-3-1" class="news-entity" geometry="primitive:plane;width:5;height:5;" position="0 0 -10"
-                    material="shader:html;target:#lorem;transparent:true;ratio:width;fps:1.5;" toggle-detail="target:#short-lorem;">
-            <a-animation attribute="position" to="0 0 -8" dur="200" begin="mouseenter"></a-animation>
-            <a-animation attribute="position" to="0 0 -10" dur="200" begin="mouseleave"></a-animation>
-            <a-animation attribute="geometry.width" from="5" to="10" dur="500" direction="alternate" begin="click"></a-animation>
-            <a-animation attribute="geometry.height" from="5" to="10" dur="500" direction="alternate" begin="click"></a-animation>
-          </a-entity>
-        </a-entity>
-        <!-- 4th column -->
-        <a-entity rotation="-30 -30 0">
-          <a-entity id="plane-3-4" class="news-entity" geometry="primitive:plane;width:5;height:5;" position="0 0 -10"
                     material="shader:html;target:#lorem;transparent:true;ratio:width;fps:1.5;" toggle-detail="target:#lorem;">
             <a-animation attribute="position" to="0 0 -8" dur="200" begin="mouseenter"></a-animation>
             <a-animation attribute="position" to="0 0 -10" dur="200" begin="mouseleave"></a-animation>
@@ -122,20 +117,31 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate, sem in 
             <a-animation attribute="geometry.height" from="5" to="10" dur="500" direction="alternate" begin="click"></a-animation>
           </a-entity>
         </a-entity>
+        <!-- 4th column -->
+        <a-entity rotation="-30 0 0">
+          <a-entity id="plane-3-4" class="news-entity" geometry="primitive:plane;width:5;height:5;" position="0 0 -10"
+                    material="shader:html;target:#aframe;transparent:true;ratio:width;fps:1.5;" go-to-url="url:https://aframe.io">
+            <a-animation attribute="position" to="0 0 -8" dur="200" begin="mouseenter"></a-animation>
+            <a-animation attribute="position" to="0 0 -10" dur="200" begin="mouseleave"></a-animation>
+            <a-animation attribute="position" from="0 0 -8" to="0 0 -11" dur="200" begin="mousedown"></a-animation>
+          </a-entity>
+        </a-entity>
         <!-- slide in animation -->
         <a-animation attribute="rotation" from="0 120 0" to="0 0 0" begin="2000" dur="1800" easing="ease-out-back"></a-animation>
+        <!-- slide out animation -->
+        <a-animation attribute="rotation" from="0 0 0" to="0 -180 0" begin="exit" dur="800" easing="ease-in-back"></a-animation>
       </a-entity>
 
       <!-- <a-entity id="news-detail" geometry="primitive:plane;width:4;height:5;" rotation="0 0 0" position="5 0 -5"></a-entity> -->
       <!-- <a-cylinder height="0" radius="30" position="0 0 0"></a-cylinder> -->
 
       <a-entity>
-        <a-cylinder position="0 2 0" radius="11" height="5" side="back" open-ended="true" color="#FFF"></a-cylinder>
+        <a-cylinder position="0 0 0" radius="11" height="5" side="back" open-ended="true" color="#FFF"></a-cylinder>
       </a-entity>
 
-      <a-entity>
+<!--       <a-entity>
         <a-cylinder position="0 -5 0" radius="10" height="1.6" side="back" open-ended="true" color="#FFF"></a-cylinder>
-      </a-entity>
+      </a-entity> -->
 
       <a-sky segments-height="1" segments-width="1" color="#ECECEC"></a-sky>
     </a-scene>
