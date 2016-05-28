@@ -81,27 +81,3 @@ html {
 #foxkeh.detail {
   background-color: #fff;
 }
-<<<<<<< HEAD
-
-#aframe {
-  background: #ef2d5e;
-  height: 84px;
-  width: 223px;
-/*  padding-top: 20px;
-  padding-left: 20px;*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#aframe > span {
-  /*background: url("../img/aframe-name-white.svg") no-repeat;*/
-  /*display: block;*/
-/*  height: 31px;
-  width: 100px;*/
-  /*text-indent: -9999px;*/
-  color: white;
-  font-size: 40px;
-}
-=======
->>>>>>> master

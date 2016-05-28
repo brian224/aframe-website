@@ -12,78 +12,15 @@ AFRAME.registerComponent('toggle-detail', {
   init: function () {
     this.targetElement = document.querySelector(this.data.target);
 
-<<<<<<< HEAD
-    if (!this.targetElement) {
-      return;
-    }
-
-    this.el.addEventListener('mousedown', () => {
-      this.clicked = true;
-    });
-
-    this.el.addEventListener('mouseleave', () => {
-      this.clicked = false;
-    });
-
-    this.el.addEventListener('mouseup', () => {
-      if (!this.clicked) {
-        return;
-      }
-
-      this.clicked = false;
-=======
     var el = this.el;
 
     el.addEventListener('click', () => {
       console.log(this.targetElement);
->>>>>>> master
       this.targetElement.classList.toggle('detail');
     });
   }
 });
 
-<<<<<<< HEAD
-AFRAME.registerComponent('go-to-url', {
-  schema: {
-    url: { default: null }
-  },
-
-  init: function () {
-    var url = this.data.url;
-
-    if (!url) {
-      return;
-    }
-
-    this.el.addEventListener('mousedown', () => {
-      this.clicked = true;
-    });
-
-    this.el.addEventListener('mouseleave', () => {
-      this.clicked = false;
-    });
-
-    this.el.addEventListener('mouseup', () => {
-      if (!this.clicked) {
-        return;
-      }
-
-      this.clicked = false;
-
-      var exitAnimation = document.getElementById('exit-animation');
-      exitAnimation.removeEventListener('animationend', this.animationendHandler);
-      this.animationendHandler = exitAnimation.addEventListener('animationend', () => {
-        window.location.href = url;
-      });
-
-      var rows = document.querySelectorAll('.row');
-      Array.prototype.forEach.call(rows, (row) => {
-        row.emit('exit');
-      });
-    });
-  }
-});
-=======
 // window.addEventListener('load', () => {
 //   console.log('load');
 //   var rows = document.querySelectorAll('.row');
@@ -101,4 +38,3 @@ AFRAME.registerComponent('go-to-url', {
 //     console.log('row loaded');
 //   });
 // });
->>>>>>> master
