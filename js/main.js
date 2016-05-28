@@ -12,6 +12,7 @@ AFRAME.registerComponent('toggle-detail', {
   init: function () {
     this.targetElement = document.querySelector(this.data.target);
 
+<<<<<<< HEAD
     if (!this.targetElement) {
       return;
     }
@@ -30,11 +31,18 @@ AFRAME.registerComponent('toggle-detail', {
       }
 
       this.clicked = false;
+=======
+    var el = this.el;
+
+    el.addEventListener('click', () => {
+      console.log(this.targetElement);
+>>>>>>> master
       this.targetElement.classList.toggle('detail');
     });
   }
 });
 
+<<<<<<< HEAD
 AFRAME.registerComponent('go-to-url', {
   schema: {
     url: { default: null }
@@ -75,3 +83,22 @@ AFRAME.registerComponent('go-to-url', {
     });
   }
 });
+=======
+// window.addEventListener('load', () => {
+//   console.log('load');
+//   var rows = document.querySelectorAll('.row');
+//   console.log(rows);
+//   Array.prototype.forEach.call(rows, (row) => {
+//     console.log(row);
+//     row.addEventListener('loaded', () => {
+//       console.log('row loaded');
+//       row.emit('');
+//     });
+//   });
+
+//   var row = document.querySelector('.row');
+//   row.addEventListener('loaded', () => {
+//     console.log('row loaded');
+//   });
+// });
+>>>>>>> master
